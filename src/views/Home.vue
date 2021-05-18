@@ -48,9 +48,9 @@ export default {
       )
     }
 
-    const offset = 121
+    const offset = 0
 
-    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=39`)
+    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=280`)
     .then(res => res.json())
     .then(data => {
       state.pokemons = data.results;
