@@ -3,16 +3,16 @@
   <!-- {{$route.params.slug}} -->
   <div class="w-full justify-items-center flex flex-col justify-items-center">
     <div class="m-auto">
-      <input type="text" class="mb-20 border-blue-400 border-2 p-2 mt-10"
+      <input type="text" class="mb-5 border-blue-400 border-2 p-2 mt-3"
       v-model='text'
       placeholder="Search Pokemon"/>
     </div>
 
-    <div class="text-2x text-blue-400 flex justify-center max-w-5xl m-auto flex-wrap space-x-2">
+    <div class="text-base text-blue-400 flex justify-center max-w-full m-auto flex-wrap space-x-2">
       <div
-      class=" p-3 m-2 w-1/5 bg-purple-100 mt-4 shadow-2xl flex justify-center flex-col items-center m-w-full"
+      class="m-2 w-42 sm:w-16 md:w-32 sm:w-full bg-purple-100 mt-4 shadow-2xl flex justify-center flex-col items-center"
       v-for="(pokemon, idx) in filteredPokemon" :key="idx">
-      <router-link :to="`/about/${urlIdLookup[pokemon?.name]}`" class="text-center font-bold">
+      <router-link :to="`/about/${urlIdLookup[pokemon?.name]}`" class="p-3 text-center font-bold sm:text-base text-base w-full">
         {{pokemon.name.toUpperCase()}}
       </router-link>
       </div>
