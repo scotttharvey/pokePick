@@ -8,12 +8,12 @@
       placeholder="Search Pokemon"/>
     </div>
 
-    <div class="text-2x text-blue-400">
+    <div class="text-2x text-blue-400 flex justify-center max-w-5xl m-auto flex-wrap space-x-2">
       <div
-      class=" pb10 auto-rows-min"
+      class=" p-3 m-2 w-1/5 bg-purple-100 mt-4 shadow-2xl flex justify-center flex-col items-center m-w-full"
       v-for="(pokemon, idx) in filteredPokemon" :key="idx">
-      <router-link :to="`/about/${urlIdLookup[pokemon?.name]}`">
-        {{pokemon.name}}
+      <router-link :to="`/about/${urlIdLookup[pokemon?.name]}`" class="text-center font-bold">
+        {{pokemon.name.toUpperCase()}}
       </router-link>
       </div>
 
