@@ -3,8 +3,11 @@
   <!-- {{$route.params.slug}} -->
   <div class="w-full justify-items-center flex flex-col justify-items-center">
     <div class="m-auto">
-      <input type="text" class="mb-5 border-blue-400 border-2 p-2 mt-3 rounded"
-      v-model='text'
+      <input type="text"
+      id="pokemonInput"
+      class="mb-5 border-blue-400 border-2 p-2 mt-3 rounded"
+      v-model='searchText'
+      @change="filterPokemon()"
       placeholder="Search Pokemon"/>
     </div>
 
@@ -36,23 +39,25 @@ export default {
     const state = reactive({
       pokemons:[],
       urlIdLookup: {},
-      text: '',
+      searchText: '',
       filteredPokemon:computed(() => updatePokemon())
     })
 
     function updatePokemon() {
-      if (!state.text) return []
+      if (!state?.searchText && !state?.pokemons) return []
 
       return state.pokemons.filter(pokemon =>
-        pokemon.name.includes(state.text)
+        pokemon.name.includes(state.searchText)
       )
     }
 
     const offset = 0
+    // const apiCondition = state?.pokemons
 
     fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=280`)
     .then(res => res.json())
     .then(data => {
+      console.log('NO');
       state.pokemons = data.results;
       state.urlIdLookup = data.results.reduce((all, itm, idx) => {
         all = { ...all, [itm.name]:idx + 1 + offset}
