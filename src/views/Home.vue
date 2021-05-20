@@ -10,6 +10,12 @@
       placeholder="Search Pokemon"/>
     </div>
 
+    <teleport to="#notApp" :disabled="!showApp" >
+      <img src="../assets/logo.png" alt="" class="w-32 m-auto">
+    </teleport>
+
+    <button @click="showApp = !showApp" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/5 m-auto">Teleport Content</button>
+
     <div class="text-base text-blue-400 flex justify-center max-w-full m-auto flex-wrap space-x-2">
       <div
       class="m-2 w-42 sm:w-16 md:w-32 sm:w-full bg-purple-100 mt-4 shadow-2xl flex justify-center flex-col items-center rounded "
@@ -75,6 +81,11 @@ export default {
     })
 
     return {...toRefs(state)}
+  },
+  data() {
+    return {
+      showApp: false
+    }
   }
 }
 </script>
