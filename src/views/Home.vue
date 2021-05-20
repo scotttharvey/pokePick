@@ -7,7 +7,6 @@
       id="pokemonInput"
       class="mb-5 border-blue-400 border-2 p-2 mt-3 rounded"
       v-model='searchText'
-      @change="filterPokemon()"
       placeholder="Search Pokemon"/>
     </div>
 
@@ -46,8 +45,17 @@ export default {
     function updatePokemon() {
       // if (!state?.searchText && !state?.pokemons) return []
 
-      return state?.pokemons?.filter(pokemon =>
-        pokemon.name.includes(state.searchText)
+      // state?.pokemons?.filter(pokemon =>{
+      //   // console.log(pokemon.name.includes(state.searchText));
+      //   let txt = `${state.searchText}`
+      //   console.log(pokemon.name.match(txt));
+
+      //   }
+      // )
+
+      return state?.pokemons?.filter(pokemon => {
+        return pokemon.name.match(state.searchText)
+        }
       )
     }
 
@@ -58,6 +66,7 @@ export default {
     .then(res => res.json())
     .then(data => {
       console.log('NO');
+      console.log(data.results);
       state.pokemons = data.results;
       state.urlIdLookup = data.results.reduce((all, itm, idx) => {
         all = { ...all, [itm.name]:idx + 1 + offset}
