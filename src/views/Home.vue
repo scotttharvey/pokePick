@@ -14,7 +14,7 @@
       <img src="../assets/logo.png" alt="" class="w-32 m-auto">
     </teleport>
 
-    <button @click="showApp = !showApp" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/5 m-auto">Teleport Content</button>
+    <button @click="showApp = !showApp" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/5 m-auto">Teleport Content</button>
 
     <div class="text-base text-blue-400 flex justify-center max-w-full m-auto flex-wrap space-x-2">
       <div
