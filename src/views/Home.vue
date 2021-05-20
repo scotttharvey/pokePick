@@ -44,9 +44,9 @@ export default {
     })
 
     function updatePokemon() {
-      if (!state?.searchText && !state?.pokemons) return []
+      // if (!state?.searchText && !state?.pokemons) return []
 
-      return state.pokemons.filter(pokemon =>
+      return state?.pokemons?.filter(pokemon =>
         pokemon.name.includes(state.searchText)
       )
     }
